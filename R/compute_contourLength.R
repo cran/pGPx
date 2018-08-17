@@ -1,0 +1,70 @@
+#' @title Compute contour lenghts
+#' @description Computes the contour lengths for the excursion sets in \code{gpRealizations}
+# Input:
+#' @param gpRealizations a matrix of size \code{nRealizations}x\code{imageSize^2} containing the GP realizations stored as long vectors. For example the object returned by \code{\link{simulate_and_interpolate}}.
+#' @param threshold threshold value
+#' @param nRealizations number of simulations of the excursion set
+#' @param verb an integer to choose the level of verbosity
+#' @return A vector of size \code{nRealizations} containing the countour lines lenghts.
+#' @references Azzimonti D. F., Bect J., Chevalier C. and Ginsbourger D. (2016). Quantifying uncertainties on excursion sets under a Gaussian random field prior. SIAM/ASA Journal on Uncertainty Quantification, 4(1):850–874.
+#'
+#' Azzimonti, D. (2016). Contributions to Bayesian set estimation relying on random field priors. PhD thesis, University of Bern.
+#' @examples
+#' ### Simulate and interpolate for a 2d example
+#' if (!requireNamespace("DiceKriging", quietly = TRUE)) {
+#' stop("DiceKriging needed for this example to work. Please install it.",
+#'      call. = FALSE)
+#' }
+#' if (!requireNamespace("DiceDesign", quietly = TRUE)) {
+#' stop("DiceDesign needed for this example to work. Please install it.",
+#'      call. = FALSE)
+#' }
+#' # Define the function
+#' g=function(x){
+#'   return(-DiceKriging::branin(x))
+#' }
+#' d=2
+#' # Fit OK km model
+#' design<-DiceDesign::maximinESE_LHS(design = DiceDesign::lhsDesign(n=50,
+#'                                                                   dimension = 2,
+#'                                                                   seed=42)$design)$design
+#' colnames(design)<-c("x1","x2")
+#' observations<-apply(X = design,MARGIN = 1,FUN = g)
+#' kmModel<-DiceKriging::km(formula = ~1,design = design,response = observations,
+#'                          covtype = "matern3_2",control=list(trace=FALSE))
+#' # Get simulation points
+#' # Here they are not optimized, you can use optim_dist_measure to find optimized points
+#' simu_points <- matrix(runif(200),ncol=d)
+#' # obtain nsims posterior realization at simu_points
+#' nsims <- 1
+#' nn_data<-expand.grid(seq(0,1,,50),seq(0,1,,50))
+#' nn_data<-data.frame(nn_data)
+#' colnames(nn_data)<-colnames(kmModel@X)
+#' approx.simu <- simulate_and_interpolate(object=kmModel, nsim = nsims, simupoints = simu_points,
+#'                                         interpolatepoints = as.matrix(nn_data),
+#'                                         nugget.sim = 0, type = "UK")
+#' cLLs<- compute_contourLength(gpRealizations = approx.simu,threshold = -10,
+#'                              nRealizations = nsims,verb = 1)
+#' @export
+
+compute_contourLength <- function(gpRealizations, threshold, nRealizations,verb=1){
+
+
+  imageSize <- sqrt(ncol(gpRealizations))
+
+
+  ll<-rep(0,nRealizations)
+  for(j in seq(nRealizations)){
+    indxSP<-contourLines(matrix(gpRealizations[j,],ncol=imageSize),levels = c(threshold))
+    nConnexComponent<-length(indxSP)
+    ll[j]<-0
+    for(i in seq(nConnexComponent))
+      ll[j]<-ll[j]+poly_length(x = indxSP[[i]]$x,y = indxSP[[i]]$y)
+    if(verb>0 && j%%100==0)
+      cat("Computed length for realizations ",j," of ",nRealizations,"\n")
+  }
+
+  return(ll)
+
+}
+
