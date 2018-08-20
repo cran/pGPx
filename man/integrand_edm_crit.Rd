@@ -4,8 +4,8 @@
 \alias{integrand_edm_crit}
 \title{Integrand of the distance in measure criterion}
 \usage{
-integrand_edm_crit(x, E, model, Thresh, batchsize, alpha, predE, predx = NULL,
-  precalc.data = NULL)
+integrand_edm_crit(x, E, model, Thresh, batchsize, alpha, predE,
+  predx = NULL, precalc.data = NULL)
 }
 \arguments{
 \item{x}{vector of dimension \eqn{d} representing the \eqn{ith} point where to compute the criterion}

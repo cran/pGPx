@@ -17,8 +17,8 @@
 #' }
 #' @details Package: pGPx \cr
 #' Type: Package \cr
-#' Version: 0.1.0 \cr
-#' Date: 2018-08-16
+#' Version: 0.1.1 \cr
+#' Date: 2018-08-20
 #'
 #' @author Dario Azzimonti (IDSIA, Switzerland, dario.azzimonti@@gmail.com)  with contributions from Julien Bect (CentraleSupélec, France). The function \code{\link{dtt_fast}} is a wrapper for C++ code by Pedro Felzenszwalb.
 #' @docType package

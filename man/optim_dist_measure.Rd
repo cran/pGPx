@@ -4,8 +4,9 @@
 \alias{optim_dist_measure}
 \title{Choose simulation points}
 \usage{
-optim_dist_measure(model, threshold, lower, upper, batchsize, algorithm = "B",
-  alpha = 0.5, verb = 1, optimcontrol = NULL, integration.param = NULL)
+optim_dist_measure(model, threshold, lower, upper, batchsize,
+  algorithm = "B", alpha = 0.5, verb = 1, optimcontrol = NULL,
+  integration.param = NULL)
 }
 \arguments{
 \item{model}{a km model}

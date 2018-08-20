@@ -26,8 +26,8 @@ Generates posterior pseudo-realizations of Gaussian processes for excursion set 
 \details{
 Package: pGPx \cr
 Type: Package \cr
-Version: 0.1.0 \cr
-Date: 2018-08-16
+Version: 0.1.1 \cr
+Date: 2018-08-20
 }
 \note{
 This work was supported in part by the Swiss National Science Foundation, grant numbers 146354, 167199 and the Hasler Foundation, grant number 16065. The author wishes to thank David Ginsbourger, Clément Chevalier and Julien Bect for the fruitful discussions.

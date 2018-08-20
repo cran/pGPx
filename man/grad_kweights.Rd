@@ -4,7 +4,8 @@
 \alias{grad_kweights}
 \title{Gradient of the weights for interpolating simulations}
 \usage{
-grad_kweights(object, simu_points, krig_points, T.mat = NULL, F.mat = NULL)
+grad_kweights(object, simu_points, krig_points, T.mat = NULL,
+  F.mat = NULL)
 }
 \arguments{
 \item{object}{km object}

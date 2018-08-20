@@ -53,7 +53,9 @@ kmModel<-DiceKriging::km(formula = ~1,design = design,response = observations,
                          covtype = "matern3_2",control=list(trace=FALSE))
 # Get simulation points
 # Here they are not optimized, you can use optim_dist_measure to find optimized points
-simu_points <- matrix(runif(200),ncol=d)
+simu_points <- DiceDesign::maximinSA_LHS(DiceDesign::lhsDesign(n=100,
+                                                               dimension = d,
+                                                               seed=1)$design)$design
 # obtain nsims posterior realization at simu_points
 nsims <- 30
 nn_data<-expand.grid(seq(0,1,,50),seq(0,1,,50))

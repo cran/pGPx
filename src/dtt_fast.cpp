@@ -57,6 +57,7 @@ arma::mat dtt_fast(arma::mat x){
        z(i,j) = sqrt( (double)imRef(y,j,i) );
 
   delete bw;
+  delete y;
   return z;
 }
 

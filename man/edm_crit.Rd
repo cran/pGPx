@@ -4,9 +4,9 @@
 \alias{edm_crit}
 \title{Distance in measure criterion}
 \usage{
-edm_crit(x, integration.points, integration.weights = NULL, intpoints.oldmean,
-  intpoints.oldsd, precalc.data, model, threshold, batchsize, alpha,
-  current.crit)
+edm_crit(x, integration.points, integration.weights = NULL,
+  intpoints.oldmean, intpoints.oldsd, precalc.data, model, threshold,
+  batchsize, alpha, current.crit)
 }
 \arguments{
 \item{x}{vector of dimension \eqn{d} representing the \eqn{ith} point where to compute the criterion}

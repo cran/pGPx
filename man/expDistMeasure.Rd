@@ -51,25 +51,28 @@ kmModel<-DiceKriging::km(formula = ~1,design = design,response = observations,
 
 threshold <- -10
 
-# Obtain simulation point sampling from uniform distribution
+# Obtain simulation point sampling from maximin LHS design
 batchsize <- 50
-unif_simu_points <-  matrix(runif(batchsize*d),ncol=d)
+set.seed(1)
+mmLHS_simu_points <-  DiceDesign::maximinSA_LHS(DiceDesign::lhsDesign(n=batchsize,
+                                                                     dimension = d,
+                                                                     seed=1)$design)$design
 
 
 # Compute expected distance in measure for approximation obtain from random simulation points
-EDM_unif <- rep(NA,batchsize)
+EDM_mmLHS <- rep(NA,batchsize)
 integcontrol <- list(distrib="sobol",n.points=1000)
 integration.param <- KrigInv::integration_design(integcontrol,d=d,
                                         lower=c(0,0),upper=c(1,1),
                                         model=kmModel,T=threshold)
 integration.param$alpha <- 0.5
 for(i in seq(1,batchsize)){
-EDM_unif[i]<-expDistMeasure( unif_simu_points[1:i,],model = kmModel,
+EDM_mmLHS[i]<-expDistMeasure( mmLHS_simu_points[1:i,],model = kmModel,
                              threshold = threshold,batchsize = i,
                              integration.param = integration.param  )
 }
 
-plot(EDM_unif,type='l',main="Expected distance in measure",xlab="batchsize")
+plot(EDM_mmLHS,type='l',main="Expected distance in measure",xlab="batchsize")
 
 
 \dontrun{
@@ -86,11 +89,11 @@ for(i in seq(1,batchsize)){
   EDM_optB[i]<-expDistMeasure( simu_points$par[1:i,],model = kmModel,threshold = threshold,
                                  batchsize = i,integration.param = integration.param  )
 }
-plot(EDM_unif,type='l',main="Expected distance in measure",
+plot(EDM_mmLHS,type='l',main="Expected distance in measure",
      xlab="batchsize",ylab="EDM",
-     ylim=range(EDM_unif,EDM_optB))
+     ylim=range(EDM_mmLHS,EDM_optB))
 lines(EDM_optB,col=2,lty=2)
-legend("topright",c("Uniform","B"),lty=c(1,2),col=c(1,2))
+legend("topright",c("Maximin LHS","B"),lty=c(1,2),col=c(1,2))
 
 # Get optimized simulation points with algorithm A
 simu_pointsA <- optim_dist_measure(model=kmModel,threshold = threshold,
@@ -105,12 +108,12 @@ for(i in seq(1,batchsize)){
   EDM_optA[i]<-expDistMeasure( simu_pointsA$par[1:i,],model = kmModel,threshold = threshold,
                                  batchsize = i,integration.param = integration.param  )
 }
-plot(EDM_unif,type='l',main="Expected distance in measure",
+plot(EDM_mmLHS,type='l',main="Expected distance in measure",
      xlab="batchsize",ylab="EDM",
-     ylim=range(EDM_unif,EDM_optB,EDM_optA))
+     ylim=range(EDM_mmLHS,EDM_optB,EDM_optA))
 lines(EDM_optB,col=2,lty=2)
 lines(EDM_optA,col=3,lty=3)
-legend("topright",c("Uniform","A","B"),lty=c(1,3,2),col=c(1,3,2))
+legend("topright",c("Maximin LHS","A","B"),lty=c(1,3,2),col=c(1,3,2))
 
 }
 }
