@@ -4,8 +4,15 @@
 \alias{max_integrand_edm}
 \title{Maximize the integrand distance in measure criterion}
 \usage{
-max_integrand_edm(lower, upper, batchsize, alpha = 0.5, Thresh, model,
-  verb = 1)
+max_integrand_edm(
+  lower,
+  upper,
+  batchsize,
+  alpha = 0.5,
+  Thresh,
+  model,
+  verb = 1
+)
 }
 \arguments{
 \item{lower}{a \eqn{d} dimensional vector containing the lower bounds for the optimization}

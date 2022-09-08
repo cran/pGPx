@@ -4,8 +4,14 @@
 \alias{simulate_and_interpolate}
 \title{Simulate and interpolate}
 \usage{
-simulate_and_interpolate(object, nsim = 1, simupoints = NULL,
-  interpolatepoints = NULL, nugget.sim = 0, type = "UK")
+simulate_and_interpolate(
+  object,
+  nsim = 1,
+  simupoints = NULL,
+  interpolatepoints = NULL,
+  nugget.sim = 0,
+  type = "UK"
+)
 }
 \arguments{
 \item{object}{km object}

@@ -4,8 +4,13 @@
 \alias{expDistMeasure}
 \title{Compute expected distance in measure of approximate excursion set}
 \usage{
-expDistMeasure(simupoints, model, threshold, batchsize,
-  integration.param = NULL)
+expDistMeasure(
+  simupoints,
+  model,
+  threshold,
+  batchsize,
+  integration.param = NULL
+)
 }
 \arguments{
 \item{simupoints}{a numeric array of size \code{batchsize*d} containing the simulation points.}

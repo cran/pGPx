@@ -4,8 +4,15 @@
 \alias{max_distance_measure}
 \title{Minimize the distance in measure criterion}
 \usage{
-max_distance_measure(lower, upper, optimcontrol = NULL, batchsize,
-  integration.param, T, model)
+max_distance_measure(
+  lower,
+  upper,
+  optimcontrol = NULL,
+  batchsize,
+  integration.param,
+  T,
+  model
+)
 }
 \arguments{
 \item{lower}{a \eqn{d} dimensional vector containing the lower bounds for the optimization}

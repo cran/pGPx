@@ -3,7 +3,6 @@
 \docType{package}
 \name{pGPx}
 \alias{pGPx}
-\alias{pGPx-package}
 \title{Pseudo-realizations for GP eXcursion}
 \description{
 Generates posterior pseudo-realizations of Gaussian processes for excursion set estimation. The package provides posterior pseudo-realizations over large designs by simulating the field at few well chosen points and interpolating the result. The points are chosen minimizing the (posterior) expected distance in measure between the approximate excursion set and the full excursion set. The main functions in the package are: \describe{

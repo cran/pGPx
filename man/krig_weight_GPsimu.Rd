@@ -4,8 +4,13 @@
 \alias{krig_weight_GPsimu}
 \title{Weights for interpolating simulations}
 \usage{
-krig_weight_GPsimu(object, simu_points, krig_points, T.mat = NULL,
-  F.mat = NULL)
+krig_weight_GPsimu(
+  object,
+  simu_points,
+  krig_points,
+  T.mat = NULL,
+  F.mat = NULL
+)
 }
 \arguments{
 \item{object}{km object.}

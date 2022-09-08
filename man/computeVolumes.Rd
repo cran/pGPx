@@ -4,8 +4,15 @@
 \alias{computeVolumes}
 \title{Compute Excursion Volume Distribution}
 \usage{
-computeVolumes(rand.set, threshold, nsim, n.int.points, bias.corr = F,
-  model = NULL, bias.corr.points = NULL)
+computeVolumes(
+  rand.set,
+  threshold,
+  nsim,
+  n.int.points,
+  bias.corr = F,
+  model = NULL,
+  bias.corr.points = NULL
+)
 }
 \arguments{
 \item{rand.set}{a matrix of size \code{n.int.points}x\code{nsim} containing the excursion set realizations stored as long vectors. For example the excursion set obtained from the result of \code{\link{simulate_and_interpolate}}.}
