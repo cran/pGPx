@@ -3,6 +3,12 @@
 
 # pGPx
 
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/pGPx)](https://CRAN.R-project.org/package=pGPx)
+<!-- badges: end -->
+
 `pGPx` is a R package to generate pseudo-realizations of Gaussian
 process excursions sets. The paper [Azzimonti et
 al. (2016)](https://arxiv.org/abs/1501.03659) and the manuscript
@@ -21,39 +27,39 @@ package are:
 
 ### Approximation:
 
--   `optim_dist_measure`: computes the optimal simulation points *e_1, …
-    , e_m* according to algorithm A or B.
+- `optim_dist_measure`: computes the optimal simulation points *e_1, … ,
+  e_m* according to algorithm A or B.
 
--   `krig_weight_GPsimu`: Given the simulations points and the
-    interpolation points computes the kriging weights for the
-    approximate process at the interpolation points.
+- `krig_weight_GPsimu`: Given the simulations points and the
+  interpolation points computes the kriging weights for the approximate
+  process at the interpolation points.
 
--   `grad_kweights`: Given the simulations points and the interpolation
-    points returns the gradient of kriging weights with respect to the
-    interpolation points.
+- `grad_kweights`: Given the simulations points and the interpolation
+  points returns the gradient of kriging weights with respect to the
+  interpolation points.
 
--   `expDistMeasure`: computes the expected distance in measure between
-    the excursion set of the approximated process and the true excursion
-    set.
+- `expDistMeasure`: computes the expected distance in measure between
+  the excursion set of the approximated process and the true excursion
+  set.
 
 ### Simulation:
 
--   `simulate_and_interpolate`: Generates nsims approximate posterior
-    field realizations at the interpolation points given the optimized
-    simulation points.
+- `simulate_and_interpolate`: Generates nsims approximate posterior
+  field realizations at the interpolation points given the optimized
+  simulation points.
 
 ### Applications:
 
--   *Contour length*: the function `compute_contourLength` computes the
-    excursion set contour length for each GP realization.
+- *Contour length*: the function `compute_contourLength` computes the
+  excursion set contour length for each GP realization.
 
--   *Distance transform*: the function `dtt_fast` computes the distance
-    transform of a binary image (Felzenszwalb and Huttenlocher, 2012)
-    and the function `DTV` computes the distance transfom variability.
+- *Distance transform*: the function `dtt_fast` computes the distance
+  transform of a binary image (Felzenszwalb and Huttenlocher, 2012) and
+  the function `DTV` computes the distance transfom variability.
 
--   *Volumes*: the function `computeVolumes` computes the excursion
-    volumes for each GP realization. It also applies a bias correction
-    for approximate realizations.
+- *Volumes*: the function `computeVolumes` computes the excursion
+  volumes for each GP realization. It also applies a bias correction for
+  approximate realizations.
 
 ## References
 
