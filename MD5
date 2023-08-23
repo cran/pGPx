@@ -1,6 +1,6 @@
-d39cf2bcd06f280c5e4df60cad677b37 *DESCRIPTION
+ebb33c255f9262cc8d254374d34c7224 *DESCRIPTION
 3ef4506a2245d0d0242c46391ce751f5 *NAMESPACE
-5fcd3d4d9ca5cdae429809e01fb1b9f7 *NEWS.md
+cecd24c567efbf750ca4f6a60c0fa2a4 *NEWS.md
 eecc393e0c099b98e4d6ade74322542c *R/DTvar.R
 2d712f639a0e9738304bc00585916714 *R/RcppExports.R
 32952679e55c68fd3865211a0d7bc544 *R/computeVolumes.R
@@ -9,14 +9,15 @@ b3d80c869107d639429dad20c3c0a5da *R/compute_contourLength.R
 e8acc09df4d28a1b5d115d1070e225eb *R/edm_crit2.R
 8f8896cf4fcb2c15ffac7b014443661d *R/expDistMeasure.R
 9b42a2e8ecb9e5f85b27e8422bbe3d2b *R/grad_weight_GPsimu.R
-af7db08f286a58bde6d76e513144a9a2 *R/help.R
 139c5f5728458c7e8e2dac96dd50bd1c *R/integrand_edm_crit.R
 2f6ff6ffee0276fac1cefc7d05bc3c23 *R/krig_weight_GPsimu.R
 c7118a6997958deb8cce28ad6e0e37f1 *R/max_distance_measure.R
 ed9bd8fb447cfe8566f85a8411cd8f28 *R/max_integrand_edm.R
 bbd0fe4a70a428aaf574e72b2cab7951 *R/optim_distMeas.R
+84bc7627aa0c46eecec3658a779ab46c *R/pGPx-package.R
 572996159b3a272f367323d15c89f4f6 *R/simulate_and_interpolate.R
 b941c0c1c00a4ddf3b511ad9dccf77df *README.md
+7080893e02c49cd296d4424b9be55069 *build/partial.rdb
 b35315703744d87c1f8ca48aba737934 *man/DTV.Rd
 4b94f26d9b35b6e5dcb00b6dea61f8fe *man/computeVolumes.Rd
 f0dbd285ea103da2debffd5586913e19 *man/compute_contourLength.Rd
@@ -30,7 +31,7 @@ b3e66bb35c3296f5edf65e7621632dfe *man/integrand_edm_crit.Rd
 fbb3d9950c7e51f5b9c6b4bea9234ad9 *man/max_distance_measure.Rd
 21900173ec4aa8c1ae6e693b06a444e3 *man/max_integrand_edm.Rd
 59b22e09beaef8fbd013f0d34cf74937 *man/optim_dist_measure.Rd
-d018c9935f3e8f187755dc38c8ef4a72 *man/pGPx.Rd
+bdc40d701d873634e55133a61cd65cfa *man/pGPx-package.Rd
 a2d72e306ebe43c9a3f6bb06edafa0ac *man/simulate_and_interpolate.Rd
 2a6f9e9e044a78154d3cfda5936d6f48 *src/Makevars
 2a6f9e9e044a78154d3cfda5936d6f48 *src/Makevars.win

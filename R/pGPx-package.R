@@ -1,5 +1,5 @@
-#' @title Pseudo-realizations for GP eXcursion
-#' @description Generates posterior pseudo-realizations of Gaussian processes for excursion set estimation. The package provides posterior pseudo-realizations over large designs by simulating the field at few well chosen points and interpolating the result. The points are chosen minimizing the (posterior) expected distance in measure between the approximate excursion set and the full excursion set. The main functions in the package are: \describe{
+#' @keywords internal
+#' @details Generates posterior pseudo-realizations of Gaussian processes for excursion set estimation. The package provides posterior pseudo-realizations over large designs by simulating the field at few well chosen points and interpolating the result. The points are chosen minimizing the (posterior) expected distance in measure between the approximate excursion set and the full excursion set. The main functions in the package are: \describe{
 #'    \item{\strong{Approximation:}}{ \itemize{
 #'     \item \code{\link{optim_dist_measure}}: Given a \link[DiceKriging]{km} objects computes the optimal simulation points \eqn{e_1}, ... , \eqn{e_m} according to algorithm \code{A} or \code{B}.
 #'     \item \code{\link{krig_weight_GPsimu}}: Given the simulations points and the interpolation points computes the kriging weights for the approximate process \eqn{\tilde{Z}} at the interpolation points.
@@ -15,24 +15,6 @@
 #'     \item \emph{Volumes}: the function \code{\link{computeVolumes}} computes the excursion volumes for each GP realization. It also applies a bias correction for approximate realizations.
 #'    }  }
 #' }
-#' @details Package: pGPx \cr
-#' Type: Package \cr
-#' Version: 0.1.1 \cr
-#' Date: 2018-08-20
-#'
-#' @author Dario Azzimonti (IDSIA, Switzerland, dario.azzimonti@@gmail.com)  with contributions from Julien Bect (CentraleSupélec, France). The function \code{\link{dtt_fast}} is a wrapper for C++ code by Pedro Felzenszwalb.
-#' @docType package
-#' @name pGPx
-#' @import pbivnorm
-#' @importFrom DiceKriging covMatrix covMat1Mat2 covVector.dx predict.km simulate
-#' @importFrom KrigInv predict_nobias_km predict_update_km_parallel computeQuickKrigcov precomputeUpdateData vorob_threshold integration_design
-#' @importFrom stats cov dist deriv pnorm rnorm runif model.matrix optim qnorm as.formula
-#' @importFrom rgenoud genoud
-#' @importFrom randtoolbox sobol
-#' @importFrom pracma poly_length
-#' @importFrom grDevices contourLines
-#' @importFrom Rcpp evalCpp
-#' @useDynLib pGPx
 #' @note This work was supported in part by the Swiss National Science Foundation, grant numbers 146354, 167199 and the Hasler Foundation, grant number 16065. The author wishes to thank David Ginsbourger, Clément Chevalier and Julien Bect for the fruitful discussions.
 #' @references Azzimonti, D., Bect, J., Chevalier, C., and Ginsbourger, D. (2016a). Quantifying uncertainties on excursion sets under a Gaussian random field prior. SIAM/ASA Journal on Uncertainty Quantification, 4(1):850–874.
 #'
@@ -48,4 +30,18 @@
 #' Chevalier, C., Bect, J., Ginsbourger, D., Vazquez, E., Picheny, V., and Richet, Y. (2014). Fast kriging-based stepwise uncertainty reduction with application to the identification of an excursion set. Technometrics, 56(4):455–465.
 #'
 #' Felzenszwalb, P. F. and Huttenlocher, D. P. (2012). Distance Transforms of Sampled Functions. Theory of Computing, 8(19):415-428.
+"_PACKAGE"
+
+## usethis namespace: start
+#' @import pbivnorm
+#' @importFrom DiceKriging covMatrix covMat1Mat2 covVector.dx predict.km simulate
+#' @importFrom KrigInv predict_nobias_km predict_update_km_parallel computeQuickKrigcov precomputeUpdateData vorob_threshold integration_design
+#' @importFrom stats cov dist deriv pnorm rnorm runif model.matrix optim qnorm as.formula
+#' @importFrom rgenoud genoud
+#' @importFrom randtoolbox sobol
+#' @importFrom pracma poly_length
+#' @importFrom grDevices contourLines
+#' @importFrom Rcpp evalCpp
+#' @useDynLib pGPx
+## usethis namespace: end
 NULL
